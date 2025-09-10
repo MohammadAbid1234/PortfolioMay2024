@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { FaDownload, FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 import AbidImage from '/abid2.png';
+import Navbar from './Navbar';
 
 export default function BottomNav() {
   const [active, setActive] = useState('home');
@@ -12,6 +13,9 @@ export default function BottomNav() {
       { id: 'services', label: 'Services' },
       { id: 'about', label: 'About' },
       { id: 'portfolio', label: 'Portfolio' },
+      { id: 'contact', label: 'Contact' },
+      { id: 'contact', label: 'Contact' },
+      { id: 'contact', label: 'Contact' },
       { id: 'contact', label: 'Contact' },
     ],
     []
@@ -62,11 +66,14 @@ export default function BottomNav() {
     };
   }, [links]);
 
+
+  
+
   return (
     <section
       id="home"
       className=" pt-10 md:pt-0  bg-gradient-to-r from-gray-900 via-black to-gray-900  bg-black text-white min-h-screen flex flex-col justify-center px-8 ">
-      <nav
+      {/* <nav
         className={` fixed left-1/2 transform -translate-x-1/2 bg-gray-900/90 px-4 py-4 rounded-full shadow-md z-50 transition-all duration-500 ${
           isTop ? 'top-2' : 'bottom-4 '
         }`}>
@@ -86,7 +93,13 @@ export default function BottomNav() {
             </li>
           ))}
         </ul>
-      </nav>
+      </nav> */}
+   {/* pass active in below component
+          */}
+
+
+<Navbar active={active} isTop={isTop} links={links} />
+
       {/* <p>abid</p> */}
       {/* Hero content */}
       <div className="   flex flex-col md:flex-row items-center justify-between gap-10 md:gap-20 py-12 ">
