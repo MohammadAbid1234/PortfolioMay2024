@@ -53,7 +53,7 @@ export default function ServicesGrid() {
       </div>
 
       <div className="min-h-screen flex items-center justify-center px-6 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
           {services.map((service, index) => (
             <div
               key={index}
