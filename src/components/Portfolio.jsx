@@ -10,37 +10,37 @@ export default function Portfolio() {
       id: 1,
       name: 'Etifaq Computer Store',
       category: 'Backend Development',
-      image: '/dashboard.png',
+      image: 'dashboard.png',
     },
     {
       id: 2,
       name: 'Etifaq Computer Store',
       category: 'Backend Development',
-      image: '/purchase.png',
+      image: 'purchase.png',
     },
     {
       id: 3,
       name: 'Etifaq Computer Store',
       category: 'Backend Development',
-      image: '/sales.png',
+      image: 'sales.png',
     },
     {
       id: 4,
       name: 'Second Computer Store',
       category: 'Full-Stack Development',
-      image: '/purchasemy2.PNG',
+      image: 'purchasemy2.PNG',
     },
     {
       id: 5,
       name: 'Second Computer Store',
       category: 'Full-Stack Development',
-      image: '/Unit.PNG',
+      image: 'Unit.PNG',
     },
     {
       id: 6,
       name: 'Second Computer Store',
       category: 'Full-Stack Development',
-      image: '/ownerpickup.png',
+      image: 'ownerpickup.png',
     },
   ];
 
@@ -80,7 +80,11 @@ export default function Portfolio() {
             className="bg-black rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform">
             {/* Image */}
             <div className="h-56 overflow-hidden">
-              <img src={`/${project.image}`} alt={project.name} className="w-full h-full object-cover" />
+              <img
+                src={`${import.meta.env.BASE_URL}${project.image}`}
+                alt={project.name}
+                className="w-full h-full object-cover"
+              />
             </div>
 
             {/* Info */}
