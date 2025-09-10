@@ -80,7 +80,7 @@ export default function Portfolio() {
             className="bg-black rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform">
             {/* Image */}
             <div className="h-56 overflow-hidden">
-              <img src={`${project.image}`} alt={project.name} className="w-full h-full object-cover" />
+              <img src={`$/{project.image}`} alt={project.name} className="w-full h-full object-cover" />
             </div>
 
             {/* Info */}
