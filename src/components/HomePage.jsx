@@ -14,9 +14,6 @@ export default function BottomNav() {
       { id: 'about', label: 'About' },
       { id: 'portfolio', label: 'Portfolio' },
       { id: 'contact', label: 'Contact' },
-      { id: 'contact', label: 'Contact' },
-      { id: 'contact', label: 'Contact' },
-      { id: 'contact', label: 'Contact' },
     ],
     []
   );
@@ -154,7 +151,7 @@ export default function BottomNav() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 text-xs">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 text-xs">
             <div className="bg-gray-900 px-6 py-4 rounded-lg text-center ">
               <h3 className="text-2xl font-bold text-blue-400">1+</h3>
               <p className=" md:text-sm text-gray-400">Experiences</p>
