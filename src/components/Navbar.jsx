@@ -1,25 +1,10 @@
 import { useRef, useState, useEffect, useMemo } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
-export default function Navbar({ active, isTop ,links}) {
+export default function Navbar({ active, isTop, links }) {
   const scrollRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
-
-//   const links = useMemo(
-//     () => [
-//       { id: 'home', label: 'Home' },
-//       { id: 'services', label: 'Services' },
-//       { id: 'about', label: 'About' },
-//       { id: 'portfolio', label: 'Portfolio' },
-//       { id: 'contact', label: 'Contact' },
-//       // Try commenting out some links ↓ to test shrink behavior
-//       { id: 'extra1', label: 'Extra1' },
-//       { id: 'extra2', label: 'Extra2' },
-//       { id: 'extra3', label: 'Extra3' },
-//     ],
-//     []
-//   );
 
   const checkScroll = () => {
     if (!scrollRef.current) return;
@@ -61,7 +46,7 @@ export default function Navbar({ active, isTop ,links}) {
         </button>
 
         {/* Scrollable Nav */}
-        <ul
+        {/* <ul
           ref={scrollRef}
           className="flex gap-1   whitespace-nowrap overflow-hidden h-10 items-center "
           onScroll={checkScroll}>
@@ -78,7 +63,34 @@ export default function Navbar({ active, isTop ,links}) {
               </a>
             </li>
           ))}
-        </ul>
+        </ul> */}
+
+        {/* Scrollable Nav */}
+{/* Scrollable Nav */}
+{/* Scrollable Nav */}
+<ul
+  ref={scrollRef}
+  className="flex gap-1 whitespace-nowrap overflow-x-auto scroll-smooth h-10 items-center no-scrollbar"
+  onScroll={checkScroll}
+>
+  {links.map(link => (
+    <li key={link.id} className="flex-shrink-0">
+      <a
+        href={`#${link.id}`}
+        className={`px-3 sm:px-4 py-1 sm:py-1.5 rounded-full transition-all duration-300 ml-1 ${
+          active === link.id
+            ? 'bg-purple-600 text-white shadow-[0_0_2px_4px_rgba(147,51,234,0.6)] rounded-full'
+            : 'hover:bg-purple-400 hover:text-white'
+        }`}
+      >
+        {link.label}
+      </a>
+    </li>
+  ))}
+</ul>
+
+
+
 
         {/* Right Arrow */}
         <button
