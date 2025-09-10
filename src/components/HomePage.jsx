@@ -66,9 +66,6 @@ export default function BottomNav() {
     };
   }, [links]);
 
-
-  
-
   return (
     <section
       id="home"
@@ -94,11 +91,10 @@ export default function BottomNav() {
           ))}
         </ul>
       </nav> */}
-   {/* pass active in below component
-          */}
+      {/* pass active in below component
+       */}
 
-
-<Navbar active={active} isTop={isTop} links={links} />
+      <Navbar active={active} isTop={isTop} links={links} />
 
       {/* <p>abid</p> */}
       {/* Hero content */}
@@ -158,18 +154,18 @@ export default function BottomNav() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-6 mt-10">
-            <div className="bg-gray-900 px-6 py-4 rounded-lg text-center">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 text-xs">
+            <div className="bg-gray-900 px-6 py-4 rounded-lg text-center ">
               <h3 className="text-2xl font-bold text-blue-400">1+</h3>
-              <p className="text-sm text-gray-400">Experiences</p>
+              <p className=" md:text-sm text-gray-400">Experiences</p>
             </div>
             <div className="bg-gray-900 px-6 py-4 rounded-lg text-center">
               <h3 className="text-2xl font-bold text-blue-400">3+</h3>
-              <p className="text-sm text-gray-400">Projects done</p>
+              <p className="md:text-sm text-gray-400">Projects done</p>
             </div>
             <div className="bg-gray-900 px-6 py-4 rounded-lg text-center">
               <h3 className="text-2xl font-bold text-blue-400">10+</h3>
-              <p className="text-sm text-gray-400">Happy Clients</p>
+              <p className=" md:text-sm text-gray-400">Happy Clients</p>
             </div>
           </div>
         </div>
