@@ -136,10 +136,8 @@ export default function BottomNav() {
             </button>
             <button>
               <a
-                href={`Abid_CV.pdf`}
-                target="_blank"
-                rel="noreferrer"
-                download={`${import.meta.env.BASE_URL}/Abid_CV.pdf`} // optional, defines the downloaded filename
+                href={`${import.meta.env.BASE_URL}Abid_CV.pdf`}
+                download="Abid_CV.pdf"
                 className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-md font-medium">
                 <FaDownload /> Download CV
               </a>

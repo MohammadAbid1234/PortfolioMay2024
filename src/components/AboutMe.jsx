@@ -55,7 +55,10 @@ export default function AboutMe() {
   }, [inView]);
 
   return (
-    <section id="about" ref={sectionRef} className="text-blue-400 bg-black py-16 px-6 md:px-20  bg-gradient-to-r from-gray-900 via-black to-gray-900">
+    <section
+      id="about"
+      ref={sectionRef}
+      className="text-blue-400 bg-black py-16 px-6 md:px-20  bg-gradient-to-r from-gray-900 via-black to-gray-900">
       {/* Title */}
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold">About Me</h2>
@@ -87,7 +90,7 @@ export default function AboutMe() {
 
           <button>
             <a
-              href="/Abid_CV.pdf"
+              href={`${import.meta.env.BASE_URL}Abid_CV.pdf`}
               download="Abid_CV.pdf" // optional, defines the downloaded filename
               className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-md font-medium">
               <FaDownload /> Download CV
