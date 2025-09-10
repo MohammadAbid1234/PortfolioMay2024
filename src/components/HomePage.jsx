@@ -87,7 +87,7 @@ export default function BottomNav() {
           ))}
         </ul>
       </nav>
-      <p>abid</p>
+      {/* <p>abid</p> */}
       {/* Hero content */}
       <div className="   flex flex-col md:flex-row items-center justify-between gap-10 md:gap-20 py-12 ">
         {/* Left Content */}
