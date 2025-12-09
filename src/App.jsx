@@ -1,7 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
@@ -19,64 +17,24 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/ContactPage';
 import Footer from './components/FooterPage';
 import { Toaster } from 'react-hot-toast';
+import DetailsPage from './components/DetailsPage';
+import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 
-export default function TemporaryDrawer() {
-  const [open, setOpen] = React.useState(false);
-
-  const toggleDrawer = newOpen => () => {
-    setOpen(newOpen);
-  };
-
-  const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  return (
-    <>
-      {/* <Sidebar/> */}
-      <HomePage />
-      <ServicesPage />
-      <AboutMe />
-      <Portfolio />
-      <Contact />
-      <Footer />
-      {/* <Button onClick={toggleDrawer(true)}>Open drawer</Button> */}
-      {/* <Drawer open={open} onClose={toggleDrawer(false)}>
-        {DrawerList}
-      </Drawer> */}
-      {/* <div
-          className={`absolute top-1 bottom-1 rounded-md transition-all duration-300 ease-out ${
-            // 1 == 1
-              // ? "left-1 w-[calc(50%-0.5rem)] bg-blue-500 shadow-md"
-               "left-[calc(50%+0.5rem)] w-[calc(50%-0.5rem)] bg-green-500 shadow-md"
-          }`}
-        >kkjjjkkkkjkjkj</div> */}
-      <Toaster position="top-right" />
-    </>
-  );
-}
+// export default function TemporaryDrawer() {
+ 
+//   return (
+//     <>
+//       {/* <Sidebar/> */}
+//       <HomePage />
+//       <ServicesPage />
+//       <AboutMe />
+//       <Portfolio />
+//       <Contact />
+//       <Footer />
+//       <Toaster position="top-right" />
+//     </>
+//   );
+// }
 
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
@@ -113,3 +71,37 @@ export default function TemporaryDrawer() {
 // }
 
 // export default App
+
+const App = () => {
+  return (
+    <div className="app">
+      <Routes>
+      <Route path="/" element={<Outlet />}>
+
+          {/* Redirect root to dashboard */}
+          <Route index element={<Navigate replace to="/main" />} />
+
+          <Route
+            path="/main"
+            element={
+              <>
+                <HomePage />
+                <ServicesPage />
+                <AboutMe />
+                <Portfolio />
+                <Contact />
+                <Footer />
+              </>
+            }
+          />
+        </Route>
+        <Route path="/DetailsPage" element={<DetailsPage />} />
+      </Routes>
+      {/* </Suspense> */}
+
+      <Toaster position="top-right" autoClose={3000} />
+    </div>
+  );
+};
+
+export default (App);

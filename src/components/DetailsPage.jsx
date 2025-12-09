@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 export default function Portfolio() {
-  const navigate = useNavigate();
-
   // Categories
   const categories = ['All', 'Backend Development', 'Full-Stack Development'];
 
@@ -14,7 +11,6 @@ export default function Portfolio() {
       name: 'Etifaq Computer Store',
       category: 'Backend Development',
       image: 'dashboard.png',
-      onclick: () => navigate('/DetailsPage'),
     },
     {
       id: 2,
@@ -47,13 +43,14 @@ export default function Portfolio() {
       image: 'ownerpickup.png',
     },
   ];
-
+console.warn('here is the warning')
   // State for filtering
   const [activeCategory, setActiveCategory] = useState('All');
 
   const filteredProjects = activeCategory === 'All' ? projects : projects.filter(p => p.category === activeCategory);
 
   return (
+    
     <section
       id="portfolio"
       className="bg-black text-white py-16 px-6 md:px-20 bg-gradient-to-r from-gray-900 via-black to-gray-900">
@@ -79,30 +76,27 @@ export default function Portfolio() {
       {/* Portfolio Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProjects.map(project => (
-         <button onClick={() => navigate('/DetailsPage')}>
-
-         {/* <button onClick={project.onclick}> */}
-            <div
-              key={project.id}
-              className="bg-black rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform">
-              {/* Image */}
-              <div className="h-56 overflow-hidden">
-                <img
-                  src={`${import.meta.env.BASE_URL}${project.image}`}
-                  alt={project.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Info */}
-              <div className="flex justify-between items-center p-4">
-                <span className="text-gray-200 font-medium">{project.name}</span>
-                <span className="text-gray-400 text-sm">{project.category}</span>
-              </div>
+          <div
+            key={project.id}
+            className="bg-black rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform">
+            {/* Image */}
+            <div className="h-56 overflow-hidden">
+              <img
+                src={`${import.meta.env.BASE_URL}${project.image}`}
+                alt={project.name}
+                className="w-full h-full object-cover"
+              />
             </div>
-          </button>
+
+            {/* Info */}
+            <div className="flex justify-between items-center p-4">
+              <span className="text-gray-200 font-medium">{project.name}</span>
+              <span className="text-gray-400 text-sm">{project.category}</span>
+            </div>
+          </div>
         ))}
-      </div>
+      </div>sidaofjjfoiasjdfjaosidf
+      <span style={{color:"red"}}>abid khan</span>
     </section>
   );
 }
