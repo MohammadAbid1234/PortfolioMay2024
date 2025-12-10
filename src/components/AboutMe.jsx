@@ -68,15 +68,16 @@ export default function AboutMe() {
       {/* Profile and Description */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div
-          className="h-[80%] w-[70%] relative overflow-visible p-2"
+          className="h-[80%] w-[70%] relative overflow-visible p-2 " 
           style={{
-            backgroundColor: '#222121',
+            // backgroundColor: '#222121',
+            backgroundColor: null,
             borderTopRightRadius: '50%',
             borderTopLeftRadius: '50%',
             marginLeft: 'auto',
             marginRight: 'auto',
           }}>
-          <img src={aboutImage} alt="Profile" className="object-contain scale-100 -translate-y-1/5" />
+          <img src={aboutImage} alt="Profile" className=" object-contain scale-100 -translate-y-1/5 rounded-full" />
         </div>
 
         <div>

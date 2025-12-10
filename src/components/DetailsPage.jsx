@@ -43,14 +43,12 @@ export default function Portfolio() {
       image: 'ownerpickup.png',
     },
   ];
-console.warn('here is the warning')
   // State for filtering
   const [activeCategory, setActiveCategory] = useState('All');
 
   const filteredProjects = activeCategory === 'All' ? projects : projects.filter(p => p.category === activeCategory);
 
   return (
-    
     <section
       id="portfolio"
       className="bg-black text-white py-16 px-6 md:px-20 bg-gradient-to-r from-gray-900 via-black to-gray-900">
@@ -95,7 +93,7 @@ console.warn('here is the warning')
             </div>
           </div>
         ))}
-      </div>sidaofjjfoiasjdfjaosidf
+      </div>
       <span style={{color:"red"}}>abid khan</span>
     </section>
   );

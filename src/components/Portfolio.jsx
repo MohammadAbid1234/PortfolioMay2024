@@ -1,65 +1,148 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import Card from '@mui/material/Card';
+import Chip from '@mui/material/Chip';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 export default function Portfolio() {
-  const navigate = useNavigate();
+  // State for filtering
+  const [activeCategory, setActiveCategory] = useState('All');
+  
+  // State for Popup
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Categories
   const categories = ['All', 'Backend Development', 'Full-Stack Development'];
 
-  // Portfolio data
+  // Portfolio data (Enhanced with details and gallery)
   const projects = [
     {
       id: 1,
       name: 'Etifaq Computer Store',
       category: 'Backend Development',
-      image: 'dashboard.png',
-      onclick: () => navigate('/DetailsPage'),
+      image: 'dashboard.png', // The main thumbnail for the grid
+      Tech: ['React', 'JavaScript', 'Laravel'],
+      // Detailed data for the popup
+      details: {
+        client: 'Etifaq Electronics',
+        duration: '3 Months',
+        role: 'Backend Developer',
+        description: 'A comprehensive inventory management system designed for a large-scale computer store. This system handles stock tracking, sales reporting, and automated reordering. Ideally suited for high-volume retail environments.',
+        gallery: ['dashboard.png', 'purchase.png', 'sales.png'] // All images for this project
+      }
     },
     {
       id: 2,
-      name: 'Etifaq Computer Store',
+      name: 'Etifaq Computer Store (Purchase View)',
       category: 'Backend Development',
       image: 'purchase.png',
+      Tech: ['React', 'JavaScript', 'Laravel'],
+      details: {
+        client: 'Etifaq Electronics',
+        duration: '3 Months',
+        role: 'Backend Developer',
+        description: 'The purchase module allowing store owners to track incoming inventory, manage vendor relationships, and calculate profit margins automatically.',
+        gallery: ['purchase.png', 'dashboard.png', 'sales.png']
+      }
     },
     {
       id: 3,
-      name: 'Etifaq Computer Store',
+      name: 'Etifaq Computer Store (Sales View)',
       category: 'Backend Development',
       image: 'sales.png',
+      Tech: ['React', 'JavaScript', 'Laravel'],
+      details: {
+        client: 'Etifaq Electronics',
+        duration: '3 Months',
+        role: 'Backend Developer',
+        description: 'Sales dashboard providing real-time analytics on daily revenue, top-selling items, and cashier performance.',
+        gallery: ['sales.png', 'dashboard.png', 'purchase.png']
+      }
     },
     {
       id: 4,
       name: 'Second Computer Store',
       category: 'Full-Stack Development',
       image: 'purchasemy2.PNG',
+      Tech: ['React', 'JavaScript', 'Laravel'],
+      details: {
+        client: 'TechWorld Inc',
+        duration: '5 Months',
+        role: 'Full Stack Developer',
+        description: 'A fully responsive e-commerce platform allowing customers to browse, customize, and purchase computer parts online. Includes a custom PC builder tool.',
+        gallery: ['purchasemy2.PNG', 'Unit.PNG', 'ownerpickup.png']
+      }
     },
     {
       id: 5,
-      name: 'Second Computer Store',
+      name: 'Second Computer Store (Unit)',
       category: 'Full-Stack Development',
       image: 'Unit.PNG',
+      Tech: ['React', 'JavaScript', 'Laravel'],
+      details: {
+        client: 'TechWorld Inc',
+        duration: '5 Months',
+        role: 'Full Stack Developer',
+        description: 'Unit conversion and specification tracking for computer components.',
+        gallery: ['Unit.PNG', 'purchasemy2.PNG', 'ownerpickup.png']
+      }
     },
     {
       id: 6,
-      name: 'Second Computer Store',
+      name: 'Second Computer Store (Pickup)',
       category: 'Full-Stack Development',
       image: 'ownerpickup.png',
+      Tech: ['React', 'JavaScript', 'Laravel'],
+      details: {
+        client: 'TechWorld Inc',
+        duration: '5 Months',
+        role: 'Full Stack Developer',
+        description: 'The logistics interface for scheduling and managing in-store pickups and delivery routings.',
+        gallery: ['ownerpickup.png', 'Unit.PNG', 'purchasemy2.PNG']
+      }
     },
   ];
 
-  // State for filtering
-  const [activeCategory, setActiveCategory] = useState('All');
-
   const filteredProjects = activeCategory === 'All' ? projects : projects.filter(p => p.category === activeCategory);
 
+  // -- Handlers --
+
+  const handleOpenPopup = (project) => {
+    setSelectedProject(project);
+    setCurrentImageIndex(0); // Reset carousel to first image
+  };
+
+  const handleClosePopup = () => {
+    setSelectedProject(null);
+  };
+
+  const nextImage = () => {
+    if (selectedProject) {
+      setCurrentImageIndex((prev) => 
+        prev === selectedProject.details.gallery.length - 1 ? 0 : prev + 1
+      );
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedProject) {
+      setCurrentImageIndex((prev) => 
+        prev === 0 ? selectedProject.details.gallery.length - 1 : prev - 1
+      );
+    }
+  };
+
   return (
-    <section
-      id="portfolio"
-      className="bg-black text-white py-16 px-6 md:px-20 bg-gradient-to-r from-gray-900 via-black to-gray-900">
+    <section id="portfolio" className="bg-black text-white py-16 px-6 md:px-20 bg-gradient-to-r from-gray-900 via-black to-gray-900 min-h-screen">
+      
       {/* Title */}
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold text-center mb-4 text-blue-400">Portfolio </h2>
+        <h2 className="text-3xl font-bold text-center mb-4 text-blue-400">Portfolio</h2>
       </div>
 
       {/* Filter Menu */}
@@ -68,7 +151,7 @@ export default function Portfolio() {
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`hover:bg-blue-600 bg-blue-500 px-5 py-2 rounded-md text-sm font-medium transition-colors ${
+            className={`px-5 py-2 rounded-md text-sm font-medium transition-colors ${
               activeCategory === cat ? 'bg-blue-400 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
             }`}>
             {cat}
@@ -79,30 +162,154 @@ export default function Portfolio() {
       {/* Portfolio Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProjects.map(project => (
-         <button onClick={() => navigate('/DetailsPage')}>
-
-         {/* <button onClick={project.onclick}> */}
-            <div
-              key={project.id}
-              className="bg-black rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform">
+          <button 
+            key={project.id}
+            onClick={() => handleOpenPopup(project)} 
+            className="text-left w-full group focus:outline-none"
+          >
+            <div className="bg-black rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform border border-gray-800">
               {/* Image */}
-              <div className="h-56 overflow-hidden">
+              <div className="h-56 overflow-hidden relative">
                 <img
                   src={`${import.meta.env.BASE_URL}${project.image}`}
                   alt={project.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:opacity-90 transition-opacity"
                 />
               </div>
 
               {/* Info */}
               <div className="flex justify-between items-center p-4">
-                <span className="text-gray-200 font-medium">{project.name}</span>
-                <span className="text-gray-400 text-sm">{project.category}</span>
+                <span className="text-gray-200 font-medium truncate pr-2">{project.name}</span>
+              </div>
+              
+              <div className="flex flex-wrap gap-1 px-4 pb-4">
+                {project.Tech.map((t, index) => (
+                  <Chip
+                    key={index}
+                    label={t}
+                    size="small"
+                    color="info"
+                    variant="outlined"
+                    sx={{ color: '#60a5fa', borderColor: '#60a5fa' }} 
+                  />
+                ))}
               </div>
             </div>
           </button>
         ))}
       </div>
+
+      {/* POPUP MODAL (The new part) */}
+      {selectedProject && (
+        <Dialog
+          open={Boolean(selectedProject)}
+          onClose={handleClosePopup}
+          maxWidth="xl"
+          fullWidth
+          PaperProps={{
+            style: {
+              backgroundColor: '#111827', // Dark gray/black background
+              color: 'white',
+              borderRadius: '16px',
+              overflow: 'hidden'
+            },
+          }}
+        >
+          {/* Close Button */}
+          <div className="absolute top-4 right-4 z-50">
+             <IconButton onClick={handleClosePopup} sx={{ color: 'white', bgcolor: 'rgba(0,0,0,0.5)', '&:hover': { bgcolor: 'rgba(0,0,0,0.8)' } }}>
+               <CloseIcon />
+             </IconButton>
+          </div>
+
+          <DialogContent className="p-0 m-0">
+            <div className="flex flex-col lg:flex-row h-full">
+              
+              {/* LEFT: Image Carousel */}
+              <div className="w-full lg:w-2/3 bg-black relative flex flex-col justify-center items-center p-4 lg:p-8 min-h-[400px] lg:min-h-[600px]">
+                
+                {/* Main Image */}
+                <div className="relative w-full h-[300px] lg:h-[500px] flex items-center justify-center">
+                   <img 
+                     src={`${import.meta.env.BASE_URL}${selectedProject.details.gallery[currentImageIndex]}`} 
+                     alt="Gallery" 
+                     className="max-h-full max-w-full object-contain rounded-lg shadow-2xl"
+                   />
+                   
+                   {/* Arrows */}
+                   <button onClick={(e) => {e.stopPropagation(); prevImage()}} className="absolute left-0 p-2 bg-black/50 hover:bg-black/80 rounded-full text-white transition-all">
+                     <ArrowBackIosNewIcon />
+                   </button>
+                   <button onClick={(e) => {e.stopPropagation(); nextImage()}} className="absolute right-0 p-2 bg-black/50 hover:bg-black/80 rounded-full text-white transition-all">
+                     <ArrowForwardIosIcon />
+                   </button>
+                </div>
+
+                {/* Thumbnails */}
+                <div className="flex gap-2 mt-6 overflow-x-auto w-full justify-center py-2">
+                  {selectedProject.details.gallery.map((img, idx) => (
+                    <img
+                      key={idx}
+                      src={`${import.meta.env.BASE_URL}${img}`} 
+                      alt="thumb"
+                      onClick={() => setCurrentImageIndex(idx)}
+                      className={`h-16 w-24 object-cover rounded-md cursor-pointer transition-all border-2 ${
+                        currentImageIndex === idx ? 'border-blue-500 opacity-100 scale-105' : 'border-transparent opacity-50 hover:opacity-100'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* RIGHT: Project Details */}
+              <div className="w-full lg:w-1/3 p-8 bg-gray-900 overflow-y-auto max-h-[80vh]">
+                <h3 className="text-3xl font-bold text-white mb-2">{selectedProject.name}</h3>
+                <p className="text-blue-400 font-medium mb-6">{selectedProject.category}</p>
+
+                <div className="space-y-6">
+                  {/* Overview */}
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-200 mb-2">Project Overview</h4>
+                    <p className="text-gray-400 leading-relaxed">
+                      {selectedProject.details.description}
+                    </p>
+                  </div>
+
+                  {/* Info Grid */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <h5 className="text-sm font-semibold text-gray-500 uppercase">Client</h5>
+                      <p className="text-white">{selectedProject.details.client}</p>
+                    </div>
+                    <div>
+                      <h5 className="text-sm font-semibold text-gray-500 uppercase">Duration</h5>
+                      <p className="text-white">{selectedProject.details.duration}</p>
+                    </div>
+                    <div>
+                      <h5 className="text-sm font-semibold text-gray-500 uppercase">My Role</h5>
+                      <p className="text-white">{selectedProject.details.role}</p>
+                    </div>
+                  </div>
+
+                  {/* Tech Stack */}
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-200 mb-3">Technologies Used</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.Tech.map((tech, i) => (
+                         <span key={i} className="px-3 py-1 bg-gray-800 border border-gray-700 rounded-full text-sm text-blue-300">
+                           {tech}
+                         </span>
+                      ))}
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
     </section>
   );
 }
