@@ -19,6 +19,7 @@ import Footer from './components/FooterPage';
 import { Toaster } from 'react-hot-toast';
 import DetailsPage from './components/DetailsPage';
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
+import Resume from './components/Resume';
 
 // export default function TemporaryDrawer() {
  
@@ -89,6 +90,7 @@ const App = () => {
                 <ServicesPage />
                 <AboutMe />
                 <Portfolio />
+                <Resume />
                 <Contact />
                 <Footer />
               </>
