@@ -26,84 +26,85 @@ export default function Portfolio() {
       name: 'Etifaq Computer Store',
       category: 'Backend Development',
       image: 'dashboard.png', // The main thumbnail for the grid
-      Tech: ['React', 'JavaScript', 'Laravel'],
+      Tech: ['Vue js', 'MySql', 'Laravel'],
       // Detailed data for the popup
       details: {
-        client: 'Etifaq Electronics',
+        client: 'Etifaq Computer Store',
         duration: '3 Months',
         role: 'Backend Developer',
         description: 'A comprehensive inventory management system designed for a large-scale computer store. This system handles stock tracking, sales reporting, and automated reordering. Ideally suited for high-volume retail environments.',
-        gallery: ['dashboard.png', 'purchase.png', 'sales.png'] // All images for this project
+        gallery: ['dashboard.png', 'purchase.png', 'sales.png','etifaqpuchasesdari.png' ,'etifaqprofitandloss.png' , 'etifaqcustomerreport.png'] // All images for this project
       }
     },
     {
       id: 2,
-      name: 'Etifaq Computer Store (Purchase View)',
-      category: 'Backend Development',
-      image: 'purchase.png',
-      Tech: ['React', 'JavaScript', 'Laravel'],
+      name: 'SmartBook',
+      category: 'Full Stack Development',
+      image: 'smartbookdashboard.png',
+      Tech: ['React', 'MySql', 'Laravel'],
       details: {
-        client: 'Etifaq Electronics',
+        client: 'SmartBook Inc',
         duration: '3 Months',
-        role: 'Backend Developer',
+        role: 'Backend Developer',  
         description: 'The purchase module allowing store owners to track incoming inventory, manage vendor relationships, and calculate profit margins automatically.',
-        gallery: ['purchase.png', 'dashboard.png', 'sales.png']
+        gallery: ['smartbookdashboard.png', 'purchasemy.png', 'smartbookcreateunit.png','smartbookcurrency.png' ,'smartbookproducts.png' ,'ownerpickup.png']
       }
     },
     {
       id: 3,
-      name: 'Etifaq Computer Store (Sales View)',
-      category: 'Backend Development',
-      image: 'sales.png',
-      Tech: ['React', 'JavaScript', 'Laravel'],
+      name: 'Inventory System',
+      category: 'Full Stack Development',
+      image: 'adminlte.png',
+      Tech: ['PHP', 'JavaScript', 'HTML', 'CSS'],
       details: {
-        client: 'Etifaq Electronics',
+        client: 'Mini Project',
         duration: '3 Months',
         role: 'Backend Developer',
         description: 'Sales dashboard providing real-time analytics on daily revenue, top-selling items, and cashier performance.',
-        gallery: ['sales.png', 'dashboard.png', 'purchase.png']
+        gallery: ['adminlte.png', 'adminltecreateorder.png']
       }
     },
     {
       id: 4,
-      name: 'Second Computer Store',
-      category: 'Full-Stack Development',
-      image: 'purchasemy2.PNG',
-      Tech: ['React', 'JavaScript', 'Laravel'],
+      name: 'Dice Game',
+      category: 'Mini Project',
+      image: 'dicegame.PNG',
+      Tech: ['JavaScript', 'HTML', 'CSS'],
       details: {
         client: 'TechWorld Inc',
         duration: '5 Months',
         role: 'Full Stack Developer',
         description: 'A fully responsive e-commerce platform allowing customers to browse, customize, and purchase computer parts online. Includes a custom PC builder tool.',
-        gallery: ['purchasemy2.PNG', 'Unit.PNG', 'ownerpickup.png']
+        gallery: ['dicegame.PNG', 'dicegamesecond.PNG']
       }
     },
     {
       id: 5,
-      name: 'Second Computer Store (Unit)',
-      category: 'Full-Stack Development',
-      image: 'Unit.PNG',
-      Tech: ['React', 'JavaScript', 'Laravel'],
+      name: 'Barger Mini Project',
+      category: 'Mini Project',
+
+      image: 'bargarone.png',
+      Tech: ['HTML', 'CSS', 'JavaScript'],
       details: {
-        client: 'TechWorld Inc',
+        client: 'Public',
         duration: '5 Months',
         role: 'Full Stack Developer',
         description: 'Unit conversion and specification tracking for computer components.',
-        gallery: ['Unit.PNG', 'purchasemy2.PNG', 'ownerpickup.png']
+        gallery: ['bargarone.png', 'bargarsecond.png', 'bargarthird.png','bargarfourth.png']
       }
     },
     {
       id: 6,
-      name: 'Second Computer Store (Pickup)',
-      category: 'Full-Stack Development',
-      image: 'ownerpickup.png',
-      Tech: ['React', 'JavaScript', 'Laravel'],
+      name: 'Basketball Scoreboard',
+      category: 'Mini Project',
+      image: 'basketballone.png',
+      Tech: ['JavaScript', 'HTML', 'CSS'],
       details: {
-        client: 'TechWorld Inc',
+        client: 'Public',
         duration: '5 Months',
         role: 'Full Stack Developer',
         description: 'The logistics interface for scheduling and managing in-store pickups and delivery routings.',
-        gallery: ['ownerpickup.png', 'Unit.PNG', 'purchasemy2.PNG']
+        gallery: ['basketballone.png', 'basketballsecond.png', 'basketballphone.png']
       }
     },
   ];

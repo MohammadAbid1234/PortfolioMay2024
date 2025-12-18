@@ -55,12 +55,20 @@ const TimelineCard = ({ data, index }) => {
   // md:w-1/2 defines the 50% split.
   // We use padding (pr-8 or pl-8) to create space for the connector arm.
   const wrapperClasses = `
-    relative flex w-full md:w-1/2
-    ${isLeft ? 'md:justify-end md:pr-10' : 'md:justify-start md:pl-10 md:ml-auto'}
+    relative flex w-full md:w-1/2 
+    ${isLeft ? 'md:justify-end md:pr-10 ' : 'md:justify-start md:pl-10 md:ml-auto'}
     pl-12 md:pl-0 /* Mobile gets left padding, desktop resets it */
     mb-8
   `;
 
+
+
+//   const wrapperClasses = `
+//   relative flex w-full md:w-2/5
+//   ${isLeft ? 'md:justify-end md:pr-10 md:ml-30' : 'md:justify-start md:pl-10 md:ml-160'}
+//   pl-12 md:pl-0 /* Mobile gets left padding, desktop resets it */
+//   mb-8
+// `;
   // Styling for the card box itself
   const cardClasses = `
     relative w-full bg-[#111111] p-6 rounded-lg shadow-[0_4px_20px_-2px_rgba(0,0,0,0.5)]
@@ -100,15 +108,15 @@ const TimelineCard = ({ data, index }) => {
            </span>
 
            {/* Title & Subtitle */}
-           <h3 className="text-xl md:text-2xl font-bold text-gray-100 mb-1 group-hover:text-white">
+           <h3 className=" text-xl text-left md:text-2xl font-bold text-gray-100 mb-1 group-hover:text-white">
              {data.degree || data.role}
            </h3>
-           <h4 className={`text-lg font-semibold mb-3 ${isLeft ? 'text-blue-400' : 'text-purple-400'}`}>
+           <h4 className={` text-lg text-left font-semibold mb-3 ${isLeft ? 'text-blue-400' : 'text-purple-400'}`}>
               {data.school || data.company}
            </h4>
 
            {/* Description */}
-           <p className="text-gray-400 leading-relaxed text-sm md:text-base font-medium">
+           <p className="md:align-left text-left text-gray-400 leading-relaxed text-sm md:text-base font-medium">
              {data.description}
            </p>
          </div>
@@ -151,8 +159,13 @@ const TimelineSection = ({ title, icon, data, accentColor }) => {
 // --- MAIN COMPONENT ---
 export default function Resume() {
   return (
+    
+
+
+
+
     // Using max-w-7xl for a wider, fuller look on large screens
-    <section className="bg-[#050505] text-white py-20 px-4 md:px-8 relative overflow-hidden min-h-screen">
+    <section className="text-white py-0 px-4 md:px-8 relative overflow-hidden min-h-screen text-blue-400 bg-black py-5 px-6 md:px-20     bg-gradient-to-r from-gray-900 via-black to-gray-900">
 
       {/* Subtle background grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] pointer-events-none"></div>
@@ -170,7 +183,7 @@ export default function Resume() {
 
         {/* --- SECTION 2: Experiences --- */}
         {/* A separator */}
-        <div className="w-full max-w-3xl mx-auto h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent my-20"></div>
+        {/* <div className="w-full max-w-3xl mx-auto h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent my-20"></div> */}
 
         <TimelineSection
             title="Work History"
