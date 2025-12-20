@@ -3,7 +3,7 @@ import { FaInstagram, FaLinkedin, FaDribbble, FaBehance, FaEnvelope, FaPhone, Fa
 export default function Footer() {
   return (
     <footer  className=" bg-gradient-to-r from-gray-900 via-black to-gray-900 text-gray-300 py-12 px-6 ">
-      <div className="dark:text-red-400 flex space-around max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-c">
+      <div className=" flex space-around max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-c">
         {/* Logo & Tagline */}
         <div>
           <h2 className="text-2xl font-bold text-blue-400">Mohammad Abid</h2>
