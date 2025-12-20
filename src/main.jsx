@@ -19,7 +19,7 @@ const queryClient = new QueryClient({
 createRoot(document.getElementById('root')).render(
   <QueryClientProvider client={queryClient}>
     <SidebarProvider>
-      <BrowserRouter >
+      <BrowserRouter basename="/PortfolioMay2024/">
         <ThemeProvider>
           {/* <ThemeContextProvider> */}
           <App />

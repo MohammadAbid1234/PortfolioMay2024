@@ -126,6 +126,9 @@
 .light .text-gray-100 {
   color: var(--light-text-primary) !important;
 }
+
+
+
 /* Accent colors */
 .light .text-blue-400 {
   color: var(--light-accent-blue) !important;
@@ -230,6 +233,14 @@
 .light * {
   animation: fadeIn 0.6s ease-out;
 }
+
+
+
+
+
+
+
+
 
 
 
