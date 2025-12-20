@@ -80,10 +80,10 @@ const App = () => {
       <Route path="/" element={<Outlet />}>
 
           {/* Redirect root to dashboard */}
-          <Route index element={<Navigate replace to="/main" />} />
+          {/* <Route index element={<Navigate replace to="/main" />} /> */}
 
           <Route
-            path="/main"
+            path="/"
             element={
               <div className=''>
                 <HomePage />
