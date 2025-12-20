@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App.jsx';
 import { SidebarProvider } from './context/SidebarProvider.jsx';
 import { BrowserRouter } from 'react-router-dom';
-
+import { ThemeProvider } from './context/ThemeContext';
 // Initialize React Query Client
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,9 +19,11 @@ const queryClient = new QueryClient({
 createRoot(document.getElementById('root')).render(
   <QueryClientProvider client={queryClient}>
     <SidebarProvider>
-      <BrowserRouter  basename="/PortfolioMay2024/">
-        {/* <ThemeContextProvider> */}
-        <App />
+      <BrowserRouter basename="/PortfolioMay2024/">
+        <ThemeProvider>
+          {/* <ThemeContextProvider> */}
+          <App />
+        </ThemeProvider>
         {/* </ThemeContextProvider> */}
       </BrowserRouter>
     </SidebarProvider>

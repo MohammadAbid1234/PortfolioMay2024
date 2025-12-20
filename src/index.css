@@ -1,4 +1,262 @@
 @import "tailwindcss";
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+
+
+@theme {
+  /* Mapping our variables to Tailwind utility names */
+  --color-main-bg: var(--main-bg);
+  --color-main-text: var(--main-text);
+  --color-sub-text: var(--sub-text);
+  --color-accent: var(--accent);
+  --color-card-bg: var(--card-bg);
+  --color-card-hover: var(--card-hover);
+}
+
+@layer base {
+  /* STEP 1A: DARK MODE (Your original default) */
+  /* Light theme variables */
+/* Premium Light Theme Variables */
+:root {
+  /* Light theme colors - Soft, modern, professional */
+  --light-bg-primary: #ffffff;
+  --light-bg-secondary: #fcfdfe;
+  --light-bg-tertiary: #f8fafd;
+  --light-card-bg: #ffffff;
+  --light-gradient-start: #f8fafe;
+  --light-gradient-mid: #ffffff;
+  --light-gradient-end: #f5f8ff;
+  
+  /* Text Colors - Better contrast hierarchy */
+  --light-text-primary: #1a1f36;
+  --light-text-secondary: #4a5568;
+  --light-text-muted: #718096;
+  --light-text-accent: #2d3748;
+  
+  /* Accent Colors - Vibrant but professional */
+  --light-accent-blue: #4f46e5;      /* Indigo - more sophisticated than plain blue */
+  --light-accent-blue-light: #6366f1; /* Light indigo */
+  --light-accent-blue-glow: rgba(79, 70, 229, 0.15);
+  --light-accent-purple: #7c3aed;    /* Rich purple */
+  --light-accent-teal: #0d9488;      /* Teal for highlights */
+  --light-accent-pink: #db2777;      /* Pink for hover states */
+  
+  /* UI Elements */
+  --light-border: #e2e8f0;
+  --light-border-hover: #cbd5e1;
+  --light-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --light-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --light-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --light-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  
+  /* Glassmorphism Effects */
+  --light-glass-bg: rgba(255, 255, 255, 0.85);
+  --light-glass-border: rgba(255, 255, 255, 0.2);
+  --light-glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
+  
+  /* Gradients */
+  --light-gradient-blue: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --light-gradient-subtle: linear-gradient(135deg, #f5f7ff 0%, #f0f4ff 100%);
+  --light-gradient-card: linear-gradient(135deg, #ffffff 0%, #f8fafe 100%);
+  
+  /* Dark theme colors (existing - refined) */
+  --dark-bg-primary: #0f172a;
+  --dark-bg-secondary: #1e293b;
+  --dark-bg-tertiary: #334155;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-accent-blue: #60a5fa;
+  --dark-accent-purple: #a78bfa;
+  --dark-border: #475569;
+  --dark-shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Light mode class */
+.light {
+  background-color: var(--light-bg-primary);
+  color: var(--light-text-primary);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Background utilities */
+.light .bg-black {
+  background-color: var(--light-bg-primary) !important;
+}
+
+.light .bg-gradient-to-r.from-gray-900.via-black.to-gray-900 {
+  background: linear-gradient(135deg, var(--light-gradient-start), var(--light-gradient-mid), var(--light-gradient-end)) !important;
+}
+
+.light .bg-gray-900 {
+  background-color: var(--light-card-bg) !important;
+  border: 1px solid var(--light-border);
+  box-shadow: var(--light-shadow);
+}
+
+.light .bg-gray-900\/90 {
+  background-color: var(--light-card-bg) !important;
+  border: 1px solid var(--light-border);
+  box-shadow: var(--light-shadow);
+}
+
+
+
+.light .bg-gray-800 {
+  background-color: var(--light-bg-tertiary) !important;
+  border: 1px solid var(--light-border);
+}
+
+/* Text utilities */
+.light .text-white {
+  color: var(--light-text-primary) !important;
+}
+
+.light .text-gray-400 {
+  color: var(--light-text-muted) !important;
+}
+
+.light .text-gray-300 {
+  color: var(--light-text-secondary) !important;
+}
+
+.light .text-gray-200 {
+  color: var(--light-text-primary) !important;
+}
+
+.light .text-gray-100 {
+  color: var(--light-text-primary) !important;
+}
+/* Accent colors */
+.light .text-blue-400 {
+  color: var(--light-accent-blue) !important;
+}
+
+.light .text-purple-400 {
+  color: var(--light-accent-purple) !important;
+}
+
+/* Border utilities */
+.light .border-gray-800 {
+  border-color: var(--light-border) !important;
+}
+
+.light .border-gray-700 {
+  border-color: var(--light-border) !important;
+}
+
+/* Shadow utilities */
+.light .shadow-lg {
+  box-shadow: var(--light-shadow-lg) !important;
+}
+
+.light .shadow-md {
+  box-shadow: var(--light-shadow) !important;
+}
+
+/* Special effects */
+.light .shadow-\[0_0_50px_20px_rgba\(59\,130\,246\,0\.5\)\] {
+  box-shadow: 0 0 50px 20px var(--light-accent-blue-glow) !important;
+}
+
+.light .shadow-\[0_4px_20px_-2px_rgba\(0\,0\,0\,0\.5\)\] {
+  box-shadow: var(--light-shadow-lg) !important;
+}
+
+/* Background patterns */
+.light .bg-\[linear-gradient\(to_right\2c \#4f4f4f2e_1px\2c transparent_1px\)\2c linear-gradient\(to_bottom\2c \#4f4f4f2e_1px\2c transparent_1px\)\] {
+  background: 
+    linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px) !important;
+  background-size: 3rem 3rem !important;
+}
+
+/* Button states */
+.light .hover\:bg-blue-600:hover {
+  background-color: var(--light-accent-blue) !important;
+}
+
+.light .hover\:bg-blue-500:hover {
+  background-color: var(--light-accent-blue-light) !important;
+}
+
+.light .hover\:text-blue-400:hover {
+  color: var(--light-accent-blue) !important;
+}
+
+/* Card enhancements */
+.light .bg-\[\#111111\] {
+  background: var(--light-gradient-card) !important;
+  border: 1px solid var(--light-border);
+  color: var(--light-text-primary);
+}
+
+/* Timeline specific */
+.light .bg-\[\#1a1a1a\] {
+  background-color: var(--light-bg-tertiary) !important;
+  border-color: var(--light-border);
+}
+
+.light .border-blue-900\/50 {
+  border-color: rgba(79, 70, 229, 0.2) !important;
+}
+
+.light .border-purple-900\/50 {
+  border-color: rgba(124, 58, 237, 0.2) !important;
+}
+
+/* Dialog/Popup styling */
+.light .MuiPaper-root {
+  background-color: var(--light-card-bg) !important;
+  color: var(--light-text-primary) !important;
+  border: 1px solid var(--light-border);
+}
+
+/* Smooth transitions for everything */
+*, *::before, *::after {
+  transition: 
+    background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Add subtle animation on theme change */
+@keyframes fadeIn {
+  from { opacity: 0.8; }
+  to { opacity: 1; }
+}
+
+.light * {
+  animation: fadeIn 0.6s ease-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #root{
     width: 100%;
@@ -90,4 +348,4 @@ button:focus-visible {
 
   
 
-}
+}}

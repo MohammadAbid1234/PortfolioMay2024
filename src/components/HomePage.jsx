@@ -2,6 +2,10 @@ import { useEffect, useMemo, useState } from 'react';
 import { FaDownload, FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 import AbidImage from '/abid2.png';
 import Navbar from './Navbar';
+import ThemeToggle from '../theme/ThemeToggle';
+
+
+
 
 export default function BottomNav() {
   const [active, setActive] = useState('home');
@@ -14,6 +18,8 @@ export default function BottomNav() {
       { id: 'about', label: 'About' },
       { id: 'portfolio', label: 'Portfolio' },
       { id: 'contact', label: 'Contact' },
+      {id:'education', label:'Education'},
+      {id:'workexperience', label:'Work Experience'},
     ],
     []
   );
@@ -64,6 +70,7 @@ export default function BottomNav() {
   }, [links]);
 
   return (
+    
     <section
       id="home"
       className=" pt-10 md:pt-0  bg-gradient-to-r from-gray-900 via-black to-gray-900  bg-black text-white min-h-screen flex flex-col justify-center px-8 ">
@@ -98,6 +105,7 @@ export default function BottomNav() {
       <div className="   flex flex-col md:flex-row items-center justify-between gap-10 md:gap-20 py-12 ">
         {/* Left Content */}
         <div className="flex-1">
+          <ThemeToggle></ThemeToggle>
           <p className="text-gray-400">Hi I am</p>
           <h2 className="text-2xl font-semibold mt-2">Mohammad Abid</h2>
           <h1 className="text-5xl font-bold text-blue-400 mt-4">Full-Stack Developer</h1>

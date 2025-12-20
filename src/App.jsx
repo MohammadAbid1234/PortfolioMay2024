@@ -85,7 +85,7 @@ const App = () => {
           <Route
             path="/main"
             element={
-              <>
+              <div className=''>
                 <HomePage />
                 <ServicesPage />
                 <AboutMe />
@@ -93,7 +93,7 @@ const App = () => {
                 <Resume />
                 <Contact />
                 <Footer />
-              </>
+              </div>
             }
           />
         </Route>
