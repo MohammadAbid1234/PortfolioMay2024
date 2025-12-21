@@ -10,7 +10,7 @@ const educationData = [
     school: 'Kabul University',
     year: '2021 - 2025',
     description:
-      'Graduated with a 3.8 GPA. Specialized in Software Engineering and Database Management. Capstone project focused on AI-driven inventory systems.',
+      ' Graduated with an overall score of 88.38% Specialized in Software Engineering and Database Management. Capstone project focused on AI-driven inventory systems.',
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const educationData = [
     school: 'Tesol Training Center',
     year: '2022 - 2023',
     description:
-      'Completed intensive teacher training program focusing on modern pedagogical methodologies and classroom management.',
+      'Completed intensive DEL program focusing on advanced English language skills.',
   },
   {
     id: 3,
@@ -37,12 +37,12 @@ const experienceData = [
     company: 'Elite Valley',
     year: 'Jan 2024 - Jan 2025',
     description:
-      'Developed and maintained full-stack web applications using React, Node.js, and MongoDB. Collaborated with senior developers to implement new features and optimize performance.',
+      'Developed and maintained full-stack web applications using React, Laravel, and Mysql. Collaborated with senior developers to implement new features and optimize performance.',
   },
   {
     id: 2,
-    role: 'Database Teacher',
-    company: 'AIT (Afghan Institute Technology)',
+    role: 'AIT Teacher',
+    company: 'AIT (Afghan Institute of Technology)',
     year: 'Sep 2025 - Dec 2025',
     description:
       'Instructed students on relational database design, SQL programming, and database administration concepts. Developed course materials and practical exercises.',
@@ -184,7 +184,7 @@ export default function Resume() {
         <TimelineSection
           id="workexperience"
           title="Work History"
-          icon={<WorkHistoryIcon className="text-purple-400" sx={{ fontSize: 36 }} />}
+          icon={<WorkHistoryIcon className="text-blue-400" sx={{ fontSize: 36 }} />}
           data={experienceData}
           accentColor="purple"
         />

@@ -39,28 +39,28 @@ export default function Portfolio() {
     {
       id: 2,
       name: 'SmartBook',
-      category: 'Full Stack Development',
+      category: 'Full-Stack Development',
       image: 'smartbookdashboard.png',
-      Tech: ['React', 'MySql', 'Laravel'],
+      Tech: ['React js', 'MySql', 'Laravel'],
       details: {
-        client: 'SmartBook Inc',
+        client: 'Retailers',
         duration: '3 Months',
-        role: 'Backend Developer',  
-        description: 'The purchase module allowing store owners to track incoming inventory, manage vendor relationships, and calculate profit margins automatically.',
+        role: 'Full Stack Developer',  
+        description: 'A full-featured retail ERP system designed for computer stores but adaptable to various retail environments. Combines inventory management, sales processing, customer relations, and financial tracking with automated profit margin calculation and multi-currency support for complete business management.',
         gallery: ['smartbookdashboard.png', 'purchasemy.png', 'smartbookcreateunit.png','smartbookcurrency.png' ,'smartbookproducts.png' ,'ownerpickup.png']
       }
     },
     {
       id: 3,
       name: 'Inventory System',
-      category: 'Full Stack Development',
+      category: 'Full-Stack Development',
       image: 'adminlte.png',
       Tech: ['PHP', 'JavaScript', 'HTML', 'CSS'],
       details: {
         client: 'Mini Project',
-        duration: '3 Months',
+        duration: '4 days',
         role: 'Backend Developer',
-        description: 'Sales dashboard providing real-time analytics on daily revenue, top-selling items, and cashier performance.',
+        description: 'A simple mini e-commerce application built using PHP and the AdminLTE template, designed to manage products, orders, and customers through a clean and user-friendly admin interface.',
         gallery: ['adminlte.png', 'adminltecreateorder.png']
       }
     },
@@ -72,9 +72,9 @@ export default function Portfolio() {
       Tech: ['JavaScript', 'HTML', 'CSS'],
       details: {
         client: 'TechWorld Inc',
-        duration: '5 Months',
-        role: 'Full Stack Developer',
-        description: 'A fully responsive e-commerce platform allowing customers to browse, customize, and purchase computer parts online. Includes a custom PC builder tool.',
+        duration: '1 day',
+        role: 'Frontend Developer',
+        description: 'A two-player dice game built with HTML, CSS, and JavaScript, featuring random dice rolls, score tracking, turn-based gameplay, and a responsive user interface with a reset/new game option.',
         gallery: ['dicegame.PNG', 'dicegamesecond.PNG']
       }
     },
@@ -87,9 +87,9 @@ export default function Portfolio() {
       Tech: ['HTML', 'CSS', 'JavaScript'],
       details: {
         client: 'Public',
-        duration: '5 Months',
-        role: 'Full Stack Developer',
-        description: 'Unit conversion and specification tracking for computer components.',
+        duration: '2 days',
+        role: 'Frontend Developer',
+        description: 'a basic burger restaurant website showcasing menu items, special offers, and payment with a responsive design for various devices.',
         gallery: ['bargarone.png', 'bargarsecond.png', 'bargarthird.png','bargarfourth.png']
       }
     },
@@ -101,9 +101,9 @@ export default function Portfolio() {
       Tech: ['JavaScript', 'HTML', 'CSS'],
       details: {
         client: 'Public',
-        duration: '5 Months',
-        role: 'Full Stack Developer',
-        description: 'The logistics interface for scheduling and managing in-store pickups and delivery routings.',
+        duration: '1 day',
+        role: 'Frontend Developer',
+        description: ' A digital basketball scoreboard application that tracks team scores, featuring interactive buttons for score adjustments and a responsive design for various devices.',
         gallery: ['basketballone.png', 'basketballsecond.png', 'basketballphone.png']
       }
     },

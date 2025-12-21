@@ -28,9 +28,9 @@ export default function ServicesGrid() {
       icon: <FaDocker size={40} />,
     },
     {
-      title: "Mobile App Prototyping",
+      title: "Mobile App Development",
       description:
-        "Developing basic mobile applications using Flutter to complement web projects or MVPs.",
+        "Developing cross-platform mobile applications using Flutter to complement web projects and MVPs.",
       icon: <FaMobileAlt size={40} />,
     },
     {

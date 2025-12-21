@@ -17,35 +17,69 @@ export default function BottomNav() {
       { id: 'services', label: 'Services' },
       { id: 'about', label: 'About' },
       { id: 'portfolio', label: 'Portfolio' },
-      { id: 'contact', label: 'Contact' },
       {id:'education', label:'Education'},
       {id:'workexperience', label:'Work Experience'},
+      { id: 'contact', label: 'Contact' },
     ],
-    []
+    [  ]
   );
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPos = window.scrollY + window.innerHeight / 2; // middle of screen
-      links.forEach(link => {
-        const section = document.getElementById(link.id);
-        if (section) {
-          if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
-            setActive(link.id);
-          }
-        }
-      });
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollPos = window.scrollY + window.innerHeight / 2; // middle of screen
+  //     links.forEach(link => {
+  //       const section = document.getElementById(link.id);
+  //       if (section) {
+  //         if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+  //           setActive(link.id);
+  //         }
+  //       }
+  //     });
 
+  //     setIsTop(window.scrollY < 100);
+  //   };
+
+  //   window.addEventListener('scroll', handleScroll);
+  //   // const handleScroll = () => {
+  //   //   setIsTop(window.scrollY < 100);
+  //   // };
+  //   // window.addEventListener("scroll", handleScroll);
+
+  //   // Scroll spy
+  //   const observer = new IntersectionObserver(
+  //     entries => {
+  //       entries.forEach(entry => {
+  //         if (entry.isIntersecting) {
+  //           setActive(entry.target.id);
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.5 }
+  //   );
+  //   // threshold: window.innerWidth < 768 ? 0.2 : 0.5, // lower threshold for mobile
+
+  //   links.forEach(link => {
+  //     const section = document.getElementById(link.id);
+  //     if (section) observer.observe(section);
+  //   });
+
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //     observer.disconnect();
+  //   };
+  // }, [links]);
+
+
+
+  useEffect(() => {
+    setIsTop(window.scrollY < 100);
+  
+    const handleTopCheck = () => {
       setIsTop(window.scrollY < 100);
     };
-
-    window.addEventListener('scroll', handleScroll);
-    // const handleScroll = () => {
-    //   setIsTop(window.scrollY < 100);
-    // };
-    // window.addEventListener("scroll", handleScroll);
-
-    // Scroll spy
+  
+    window.addEventListener('scroll', handleTopCheck);
+  
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
@@ -54,21 +88,25 @@ export default function BottomNav() {
           }
         });
       },
-      { threshold: 0.5 }
+      {
+        root: null,
+        rootMargin: '0px 0px -40% 0px', // 👈 important
+        threshold: 0.3,
+      }
     );
-    // threshold: window.innerWidth < 768 ? 0.2 : 0.5, // lower threshold for mobile
-
+  
     links.forEach(link => {
       const section = document.getElementById(link.id);
       if (section) observer.observe(section);
     });
-
+  
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleTopCheck);
       observer.disconnect();
     };
   }, [links]);
 
+  
   return (
     
     <section
@@ -165,7 +203,7 @@ export default function BottomNav() {
               <p className=" md:text-sm text-gray-400">Experiences</p>
             </div>
             <div className="bg-gray-900 px-6 py-4 rounded-lg text-center">
-              <h3 className="text-2xl font-bold text-blue-400">3+</h3>
+              <h3 className="text-2xl font-bold text-blue-400">6+</h3>
               <p className="md:text-sm text-gray-400">Projects done</p>
             </div>
             <div className="bg-gray-900 px-6 py-4 rounded-lg text-center">
@@ -179,10 +217,11 @@ export default function BottomNav() {
         {/* add and flex-1 in belw */}
         <div className=" flex justify-center  mt-30 md:mt-0 ">
           <div className="w-72 h-72 md:w-96 md:h-96 sm:my-20 rounded-full bg-gradient-to-tr from-blue-500/70 to-transparent flex items-center justify-center relative overflow-visible  shadow-[0_0_50px_20px_rgba(59,130,246,0.5)] ">
+           
             <img
               src={AbidImage}
               alt="Example"
-              className="absolute bottom-[-20px] left-1/2 -translate-x-1/2 -translate-y-1/20 w-[120%] h-[120%] object-cover rounded-full  "
+              className="absolute bottom-[-20px] left-1/2 -translate-x-1/2 -translate-y-1/20 w-[110%] h-[110%] object-cover rounded-full  "
             />
           </div>
         </div>
