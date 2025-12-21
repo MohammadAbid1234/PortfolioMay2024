@@ -1,15 +1,17 @@
 import { useTheme } from '../context/ThemeContext';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ isTop }) {
   const { theme, toggleTheme } = useTheme();
 
   return (
     <button
       onClick={toggleTheme}
-      className={`fixed top-6 right-6 p-3 rounded-full shadow-2xl z-50 
-                 transition-all duration-500 transform hover:scale-110
-                 theme-toggle ${theme === 'dark' ? 'bg-gray-900' : 'bg-white'}`}
+      className={`fixed right-5 p-3 rounded-full shadow-2xl z-50 
+             transition-all duration-500 transform hover:scale-110
+             theme-toggle ${theme === 'dark' ? 'bg-gray-900' : 'bg-white'}
+             ${isTop ? 'top-20' : 'top-3'}
+             lg:top-3`}
       aria-label="Toggle Theme">
       {theme === 'dark' ? (
         <FaMoon className="text-xl text-yellow-500 animate-in fade-in zoom-in duration-300" />

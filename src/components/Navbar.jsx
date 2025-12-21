@@ -68,11 +68,13 @@ export default function Navbar({ active, isTop, links }) {
 
           {/* Gradient overlays to indicate scrollability */}
           <div
-            className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-gray-900/90 to-transparent pointer-events-none opacity-0 transition-opacity duration-300"
+            className="absolute left-0 top-0 bottom-0 w-6  pointer-events-none opacity-0 transition-opacity duration-300"
+            // className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-gray-900/90 to-transparent pointer-events-none opacity-0 transition-opacity duration-300"
             style={{ opacity: canScrollLeft ? 1 : 0 }}
           />
           <div
-            className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-gray-900/90 to-transparent pointer-events-none opacity-0 transition-opacity duration-300"
+            className="absolute right-0 top-0 bottom-0 w-6  pointer-events-none opacity-0 transition-opacity duration-300"
+            // className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-gray-900/90 to-transparent pointer-events-none opacity-0 transition-opacity duration-300"
             style={{ opacity: canScrollRight ? 1 : 0 }}
           />
         </div>
