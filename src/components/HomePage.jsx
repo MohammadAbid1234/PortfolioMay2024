@@ -70,10 +70,42 @@ export default function BottomNav() {
   // }, [links]);
 
 
-
-  useEffect(() => {
-    setIsTop(window.scrollY < 100);
+//  see it come it back
+  // useEffect(() => {
+  //   setIsTop(window.scrollY < 100);
   
+  //   const handleTopCheck = () => {
+  //     setIsTop(window.scrollY < 100);
+  //   };
+  
+  //   window.addEventListener('scroll', handleTopCheck);
+  
+  //   const observer = new IntersectionObserver(
+  //     entries => {
+  //       entries.forEach(entry => {
+  //         if (entry.isIntersecting) {
+  //           setActive(entry.target.id);
+  //         }
+  //       });
+  //     },
+  //     {
+  //       root: null,
+  //       rootMargin: '0px 0px -40% 0px', // 👈 important
+  //       threshold: 0.3,
+  //     }
+  //   );
+  
+  //   links.forEach(link => {
+  //     const section = document.getElementById(link.id);
+  //     if (section) observer.observe(section);
+  //   });
+  
+  //   return () => {
+  //     window.removeEventListener('scroll', handleTopCheck);
+  //     observer.disconnect();
+  //   };
+  // }, [links]);
+  useEffect(() => {
     const handleTopCheck = () => {
       setIsTop(window.scrollY < 100);
     };
@@ -81,8 +113,10 @@ export default function BottomNav() {
     window.addEventListener('scroll', handleTopCheck);
   
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
+          // On mobile, we want to trigger as soon as the section 
+          // enters the middle of the viewport
           if (entry.isIntersecting) {
             setActive(entry.target.id);
           }
@@ -90,12 +124,14 @@ export default function BottomNav() {
       },
       {
         root: null,
-        rootMargin: '0px 0px -40% 0px', // 👈 important
-        threshold: 0.3,
+        // Change: Use a margin that focuses on the top-middle of the screen
+        // This works better for long vertical sections on mobile
+        rootMargin: '-10% 0px -70% 0px', 
+        threshold: 0, // Trigger as soon as any part enters that margin
       }
     );
   
-    links.forEach(link => {
+    links.forEach((link) => {
       const section = document.getElementById(link.id);
       if (section) observer.observe(section);
     });
@@ -105,7 +141,6 @@ export default function BottomNav() {
       observer.disconnect();
     };
   }, [links]);
-
   
   return (
     

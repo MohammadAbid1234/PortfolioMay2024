@@ -19,6 +19,24 @@ export default function Navbar({ active, isTop, links }) {
     return () => window.removeEventListener('resize', checkScroll);
   }, []);
 
+
+  // Inside Navbar component
+useEffect(() => {
+  if (active && scrollRef.current) {
+    const activeElement = scrollRef.current.querySelector(`[href="#${active}"]`);
+    if (activeElement) {
+      const container = scrollRef.current;
+      const scrollLeft = activeElement.offsetLeft - container.offsetWidth / 2 + activeElement.offsetWidth / 2;
+      
+      container.scrollTo({
+        left: scrollLeft,
+        behavior: 'smooth',
+      });
+    }
+  }
+}, [active]); // Runs every time the active section changes
+
+
   const scroll = direction => {
     if (!scrollRef.current) return;
     const scrollAmount = 150;
