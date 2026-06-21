@@ -35,7 +35,7 @@ const experienceData = [
     id: 1,
     role: 'Full Stack Web Developer Intern',
     company: 'Elite Valley',
-    year: 'Jan 2024 - Jan 2025',
+    year: 'Jan 2021 - Aug 2021',
     description:
       'Developed and maintained full-stack web applications using React, Laravel, and Mysql. Collaborated with senior developers to implement new features and optimize performance.',
   },
