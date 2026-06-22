@@ -143,7 +143,8 @@ export default function Portfolio() {
       
       {/* Title */}
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold text-center mb-4 text-blue-400">Portfolio</h2>
+        <h2 className="text-3xl font-bold text-center mb-4 text-blue-400">Portfolio </h2>
+        <h2 className="text-2xl  text-center mb-1 text-blue-500"> +6 Projects</h2>
       </div>
 
       {/* Filter Menu */}
